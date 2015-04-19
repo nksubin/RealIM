@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qdV-2J-qgJ">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="9Kt-N2-sqb">
+            <objects>
+                <navigationController id="qdV-2J-qgJ" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZxS-ai-qLV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="V0S-ce-bhI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BLX-nu-OyD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-877" y="273"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="Home" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Im-GJ-hVO">
+                                <rect key="frame" x="200" y="110" width="200" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="1Aj-h8-Ji3"/>
+                                    <constraint firstAttribute="height" constant="30" id="eKM-Of-e9k"/>
+                                </constraints>
+                                <state key="normal" title="Join Chatroom">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="GoToChatRoom:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="iJV-g6-hqm"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="9Im-GJ-hVO" secondAttribute="centerX" id="gH2-aM-u7J"/>
+                            <constraint firstItem="9Im-GJ-hVO" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="46" id="t4n-Lx-8FS"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Y2a-ej-5GE"/>
+                    <connections>
+                        <segue destination="2W7-IZ-IAJ" kind="show" identifier="ChatSegue" id="zQw-EJ-ON8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-239" y="237"/>
+        </scene>
+        <!--Chat-->
+        <scene sceneID="KCf-JF-8cV">
+            <objects>
+                <viewController id="2W7-IZ-IAJ" customClass="Chat" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7sk-LH-vAY"/>
+                        <viewControllerLayoutGuide type="bottom" id="2SY-X9-gU6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XBX-PN-m1S">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="690-ES-WLm" customClass="UIBubbleTableView">
+                                <rect key="frame" x="0.0" y="64" width="600" height="493"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="bubbleDataSource" destination="2W7-IZ-IAJ" id="By7-Cg-6tP"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="690-ES-WLm" firstAttribute="leading" secondItem="XBX-PN-m1S" secondAttribute="leadingMargin" constant="-16" id="7kL-OG-CG9"/>
+                            <constraint firstItem="2SY-X9-gU6" firstAttribute="top" secondItem="690-ES-WLm" secondAttribute="bottom" constant="43" id="UAn-zc-UaA"/>
+                            <constraint firstItem="690-ES-WLm" firstAttribute="top" secondItem="7sk-LH-vAY" secondAttribute="bottom" id="g6M-79-tjy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="690-ES-WLm" secondAttribute="trailing" constant="-16" id="oyv-6e-oV6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bubbleTable" destination="690-ES-WLm" id="Y1X-oX-Bsw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="12Q-qM-TjP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="436" y="237"/>
+        </scene>
+    </scenes>
+</document>
