@@ -1,2 +1,4 @@
 # RealIM
-Chat test
+Real IM is simply a chat room Client which is based on the Parse backend services. By clicking in the Join ChatRoom button, An alertview with single textfield will popup. That will request the user to enter his name for chatroom. The user who enter in chatroom will get whole chat hystory and can continue chatting by the chat textbox provided in the application. The chat page is based on customized UITableView and which is capable for support Verying length chat text and Images. The Chats will appear in both sides of uitableview according to the Sender and the room chatmates.
+This is purely a test application and it will not guaranty any kind of support and issie fixes. The network checking is not handled in this application since it is not developed for any kind of production purpose.
+
